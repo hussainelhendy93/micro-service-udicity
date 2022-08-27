@@ -17,22 +17,19 @@ script:
   - docker --version # print the version for logging
   - docker build -t udagram-api-feed ./project/udagram-api-feed
   - docker tag udagram-api-feed hussain93/udagram-api-feed:v1
-  - docker push udagram-api-feed
   - docker --version # print the version for logging
   - docker build -t udagram-api-user ./project/udagram-api-user
   - docker tag udagram-api-user hussain93/udagram-api-user:v1
-  - docker push hussain93/udagram-api-user:v1
   - docker --version # print the version for logging
   - docker build -t udagram-frontend ./project/udagram-frontend
   - docker tag udagram-frontend hussain93/udagram-frontend:v1
-  - docker push hussain93/udagram-frontend:v1
   - docker --version # print the version for logging
   - docker build -t reverseproxy ./project/udagram-reverseproxy
   - docker tag reverseproxy hussain93/reverseproxy:v1
-  - docker push hussain93/reverseproxy:v1
-
+  
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push udagram-api-feed
   
   
   
