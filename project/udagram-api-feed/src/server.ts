@@ -13,6 +13,13 @@ import { V0_FEED_MODELS } from './controllers/v0/model.index';
   await sequelize.addModels(V0_FEED_MODELS);
 
   console.debug("Initialize database connection...");
+  console.debug("Initialize database connection...");
+  console.debug(`server running ${config.aws_media_bucket}`);
+  console.debug(`server running ${config.aws_region}`);
+  console.debug(`server running ${config.username}`);
+  console.debug(`server running ${config.password}`);
+  console.debug(`server running ${config.host}`);
+  console.debug(`server running ${config.database}`);
   await sequelize.sync();
 
   const app = express();
